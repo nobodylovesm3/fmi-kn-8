@@ -1,56 +1,45 @@
 #include <iostream>
-
 using namespace std;
 
-enum weekDays {
-  SUN,
-  MON,
-  TUE,
-  WED,
-  THURS,
-  FRI,
-  SAT
-};
 
-enum months {
-  JAN=1,
-  FEB=2,
-  MAR=3,
-  APR=4,
-  MAY=5,
-  JUN=6,
-  JUL=7,
-  AUG=8,
-  SEPT=9,
-  OCT=10,
-  NOV=11,
-  DEC=12
-};
+int d;
+int m;
 
-enum monthsNumberOfDays {
-  JAN_DAYS = 31,
-  FEB_DAYS = 28,
-  MAR_DAYS = 31,
-  APR_DAYS = 30,
-  MAY_DAYS = 31,
-  JUN_DAYS = 30,
-  JUL_DAYS = 31,
-  AUG_DAYS = 31,
-  SEP_DAYS = 30,
-  OCT_DAYS = 31,
-  NOV_DAYS = 30,
-  DEC_DAYS = 31
-};
-
-
-
-string weekDay(int years, short month, short date){
-  //got lazy
+string weekday(int d, int m){
+    long a=29;
+    if(m >= 2) a += 31;
+    if(m >= 3) a += 29;
+    else if(m >= 3) a += 28;
+    if(m >= 4) a += 31;
+    if(m >= 5) a += 30;
+    if(m >= 6) a += 31;
+    if(m >= 7) a += 30;
+    if(m >= 8) a += 31;
+    if(m >= 9) a += 31;
+    if(m >= 10) a += 30;
+    if(m >= 11) a += 31;
+    if(m == 12) a += 30;
+    a += d;
+    int b = (a - 2)  % 7;
+    switch (b){
+    case 1:
+        return "Monday";
+    case 2:
+        return "Tuesday";
+    case 3:
+        return "Wednesday";
+    case 4:
+        return "Thursday";
+    case 5:
+        return "Friday";
+    case 6:
+        return "Saturday";
+    case 7:
+        return "Sunday";
+    }
 }
 
 int main(){
-
-
-
-  return 0;
+    cin >> d >> m;
+    cout << weekday(d, m);
 }
