@@ -149,5 +149,4 @@ void replace_all_strings(char new_string[], const char original_string[], const 
 
     new_string[new_string_index] = '\0'; 
 	
-	return 0;
 }
