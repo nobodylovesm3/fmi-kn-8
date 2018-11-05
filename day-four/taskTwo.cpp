@@ -2,6 +2,11 @@
 
 using namespace std;
 
+bool is_numerical_character(char c){
+
+    return c >= '0' && c <= '9';
+}
+
 int string_to_int(const char string_number[]){
 
     int result_number = 0;
